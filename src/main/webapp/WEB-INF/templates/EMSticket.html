@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>EMS_ticket_double</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        *{margin:0;padding:0;}
+        body{font-size: 14px;font-family:'黑体';}
+        .l{float: left;}
+        .electronic_return{width:96mm;height:158mm;border:1px solid #002967;overflow: hidden;margin:60px auto;padding:2mm;}
+        .electronic_return_1{width:96mm;height:157mm;border:1px dashed #002967;overflow: hidden;}
+        .electronic_return_2{height:20mm;border-bottom:1px dashed #002967;overflow: hidden;}
+        .electronic_return_2_1{width:40mm;height:20mm;border-right:1px dashed #002967;}
+        .electronic_return_2_1 span{width:40mm;height:6mm;font-size:14px;border-bottom:1px dashed #002967;text-align: center;text-align: -moz-center;text-align: -webkit-center;display: block;line-height: 6mm;}
+        .electronic_return_2_1 p{width:40mm;height:14mm;font-size:20px;text-align: center;text-align: -moz-center;text-align: -webkit-center;line-height: 14mm;}
+        .electronic_return_2_2{width:55mm;height:20mm;}
+        .electronic_return_2_2_1{width:55mm;height:14mm;text-align: center;text-align: -moz-center;text-align: -webkit-center;}
+        .electronic_return_2_2_1 img{width:52mm;height:12mm;display: inline-block;margin-top: 1mm;}
+        .electronic_return_2_2_2{width:55mm;height:6mm;line-height:6mm;text-align: center;text-align: -moz-center;text-align: -webkit-center;}
+        .electronic_return_3{width:96mm;height:15mm;border-bottom:1px dashed #002967;overflow: hidden;}
+        .electronic_return_3_1{width:46mm;height:15mm;border-right:1px dashed #002967;font-size: 14px;}
+        .electronic_return_3_1_1{width:10mm;line-height: 5mm;padding-left: 0.5mm;}
+        .electronic_return_3_1_2{width:35mm;overflow: hidden;font-size: 12px;}
+        .electronic_return_3_1_2 p{line-height:5mm;}
+        .electronic_return_3_2{width:49mm;height:15mm;line-height:15mm;font-size:30px;font-weight:700;text-align: center;text-align: -moz-center;text-align: -webkit-center;}
+        .electronic_return_4{width:96mm;height:17mm;border-bottom:1px dashed #002967;font-size: 14px;overflow: hidden;}
+        .electronic_return_4_1{overflow: hidden;width:85mm;}
+        .electronic_return_4_1 p{line-height: 5mm;}
+        .electronic_return_4_1 i{line-height:7mm;font-size:16px;font-weight:700;display: block;font-style: normal;}
+        .electronic_return_5{width:96mm;height:19mm;border-bottom:1px dashed #002967;overflow: hidden;}
+        .electronic_return_5_1{width:39mm;height:19mm;border-right:1px dashed #002967;padding-left: 1mm;}
+        .electronic_return_5_1_1{font-size: 14px;line-height: 5mm;}
+        .electronic_return_5_1_2{font-size: 12px;}
+        .electronic_return_5_2{width:54mm;height:19mm;padding-left: 1mm;}
+        .electronic_return_6{width:96mm;height:24mm;border-bottom:1px dashed #002967;overflow: hidden;}
+        .electronic_return_6_1{height:8mm;overflow: hidden;}
+        .electronic_return_6_1_1{width:50mm;}
+        .electronic_return_6_1_1_1{height:8mm;width:17mm;padding-left: 1mm;}
+        .electronic_return_6_1_1_2{height:8mm;width:30mm;}
+        .electronic_return_6_1_1_2 img{display: block;margin:2px auto;height:4mm;width:30mm;}
+        .electronic_return_6_1_1_2 p{height:3mm;line-height: 3mm;font-size: 12px;text-align: center;text-align: -moz-center;text-align: -webkit-center;}
+        .electronic_return_6_1_2{margin-right:1mm;}
+        .electronic_return_6_2{width:96mm;height:16mm;overflow: hidden;}
+        .electronic_return_6_2_1{width:17mm;padding-left: 1mm;line-height: 5mm;}
+        .electronic_return_6_2_2{width:78mm;overflow: hidden;}
+        .electronic_return_6_2_2 p{line-height: 5mm;height:5mm;}
+        .electronic_return_7{width:96mm;height:4mm;border-bottom:1px dashed #002967;overflow: hidden;}
+        .electronic_return_8{width:96mm;height:15mm;border-bottom:1px dashed #002967;overflow: hidden;}
+        .electronic_return_8_1{width:53mm;height:15mm;}
+        .electronic_return_8_1 img{width:51mm;height:8mm;margin:1mm 1mm;}
+        .electronic_return_8_1 p{height:3mm;line-height: 3mm;text-align: center;text-align: -moz-center;text-align: -webkit-center;}
+        .electronic_return_8_2{width:40mm;height:15mm;margin:0 1mm;}
+        .electronic_return_8_2 img{width:40mm;height:15mm;}
+        .electronic_return_9{width:96mm;height:17mm;border-bottom:1px dashed #002967;overflow: hidden;}
+        .electronic_return_9_1{width:47mm;height:17mm;border-right:1px dashed #002967;}
+        .electronic_return_9_2{width:48mm;height:17mm;}
+        .electronic_return_9_2_1{width:10mm;line-height: 5mm;padding-left: 0.5mm;}
+        .electronic_return_9_2_2{overflow: hidden;width:37mm;font-size:12px;}
+        .electronic_return_9_2_2 p{line-height: 5mm;}
+        .electronic_return_9_2_2 i{line-height:5mm;display: block;font-style: normal;}
+        .electronic_return_10{width:96mm;height:24mm;overflow: hidden;}
+        .electronic_return_10_1{width:70mm;height:24mm;overflow:hidden;}
+
+
+
+
+        .electronic_return_10_2{width:25mm;height:24mm;border-left:1px dashed #002967;}
+        .electronic_return_10_2 img{width:20mm;height:20mm;margin:2mm auto;display:block;}
+        .electronic_return_10_1_1{width:70mm;height:17mm;border-bottom:1px dashed #002967;}
+        .electronic_return_10_1_2{width:56mm;overflow:hidden;}
+        .electronic_return_10_1_3{width:70mm;height:7mm;overflow:hidden;line-height:7mm;}
+        .electronic_return_10_1_3 span{margin-left:3mm;display:block;}
+    </style>
+</head>
+<body>
+<div class="electronic_return">
+    <div class="electronic_return_1">
+        <div class="electronic_return_2">
+            <div class="l electronic_return_2_1">
+                <span>标准快递</span>
+                <p>EMS电子返单</p>
+            </div>
+            <div class="l electronic_return_2_2">
+                <div class="electronic_return_2_2_1">
+                    <img src="../../static/img/billNo_9703800306304.jpg"/>
+                </div>
+                <p class="electronic_return_2_2_2" th:text="${billno}"></p>
+            </div>
+        </div>
+        <div class="electronic_return_3">
+            <div class="l electronic_return_3_1">
+                <span class="l electronic_return_3_1_1">寄件:</span>
+                <div class="l electronic_return_3_1_2">
+                    <p th:text="${scontactor+scustMobile}"></p>
+                </div>
+            </div>
+            <div class="l electronic_return_3_2" th:text="${area}"></div>
+        </div>
+        <div class="electronic_return_4">
+            <span class="l electronic_return_3_1_1">收件:</span>
+            <div class="l electronic_return_4_1">
+                <p th:text="${tcontactor+tcustMobile}"></p>
+                <i th:text="${tcustAddr}"></i>
+            </div>
+        </div>
+        <div class="electronic_return_5">
+            <div class="electronic_return_5_1 l">
+                <div class="electronic_return_5_1_1">付款方式:现金</div>
+                <div class="electronic_return_5_1_1" >计费重量(KG):<span th:text="${cargoWeight}"></span></div>
+                <div class="electronic_return_5_1_1">保价金额(元):30</div>
+            </div>
+            <div class="electronic_return_5_2 l">
+                <div class="electronic_return_5_1_1">收件人/代收人:</div>
+                <div class="electronic_return_5_1_1">签收时间: 年 月 日 时</div>
+                <div class="electronic_return_5_1_2">快件送达收货人地址.经收件人或收件人允许的代收人的签字.视为送达.</div>
+            </div>
+        </div>
+        <div class="electronic_return_6">
+            <div class="electronic_return_6_1">
+                <div class="l electronic_return_6_1_1">
+                    <span class="l electronic_return_6_1_1_1">订单号:</span>
+                    <div class="l electronic_return_6_1_1_2">
+                        <img src="../../static/img/billNo_9703800306304.jpg"/>
+                        <p th:text="${orderId}"></p>
+                    </div>
+                </div>
+                <p class="l electronic_return_6_1_2" >件数:<span th:text="${cargoAmount}"></span></p>
+                <p class="l electronic_return_6_1_2" >重量(KG):<span th:text="${cargoWeight}"></span></p>
+            </div>
+            <div class="electronic_return_6_2">
+                <div class="electronic_return_6_2_1 l">配货信息:</div>
+                <div class="electronic_return_6_2_2 l">
+                    <p th:text="${cargoName}"></p>
+                    <!-- <p>格子衬衫(1件) 红黄;M(春装新款最后一天)</p>
+                    <p>Y3123541D-1545 中灰/苹果绿; 31# 1 s21-1;</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="electronic_return_7"></div>
+        <div class="electronic_return_8">
+            <div class="l electronic_return_8_1">
+             <img src="../../static/img/billNo_9703800306304.jpg"/>
+                <p th:text="${billno}"></p>
+            </div>
+            <div class="l electronic_return_8_2">
+                <img src="../../static/img/EMS.jpg"/>
+            </div>
+        </div>
+        <div class="electronic_return_9">
+            <div class="electronic_return_9_1 l">
+                <span class="l electronic_return_3_1_1">寄件:</span>
+                <div class="l electronic_return_3_1_2">
+                    <p th:text="${scontactor+scustMobile}"></p>
+                    <p th:text="${scustAddr}"></p>
+                </div>
+            </div>
+            <div class="electronic_return_9_2 l">
+                <span class="l electronic_return_9_2_1">收件:</span>
+                <div class="l electronic_return_9_2_2">
+                    <p th:text="${tcontactor+tcustMobile}"></p>
+                    <i th:text="${tcustAddr}"></i>
+                </div>
+            </div>
+        </div>
+        <div class="electronic_return_10">
+            <div class="electronic_return_10_1 l">
+                <div class="electronic_return_10_1_1">
+                    <span class="l electronic_return_3_1_1">寄件:</span>
+                    <div class="electronic_return_10_1_2 l">收货前请确认包装是否完好,有无破损.如有问题,请拒绝签收</div>
+                </div>
+                <div class="electronic_return_10_1_3">
+                    <span class="l">网址:www.ems.com.cn</span>
+                    <span class="l">客服电话:11183</span>
+                </div>
+            </div>
+            <div class="electronic_return_10_2 l">
+                <img src="../../static/img/qrcode_for_ems.jpg"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

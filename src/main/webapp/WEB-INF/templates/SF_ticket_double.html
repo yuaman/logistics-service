@@ -1,0 +1,405 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>sf_ticket_double</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        *{margin:0;padding:0;}
+        body{font-size: 14px;font-family:'黑体';}
+        .l{float: left;}
+        .express{width:100mm;height:176mm;border:1px solid #002967;overflow: hidden;margin-left:10%;padding:2mm;float: left;}
+        .express_1{width:100mm;height:117mm;border-bottom:1px solid #002967;}
+        .express_1_1{height:12mm;overflow: hidden;border-bottom:1px solid #002967;}
+        .express_1_1 img{height:8mm;margin-top: 2mm;display: block;overflow:hidden;}
+        .express_1_1 div{width:51mm;height:12mm;line-height:12mm;text-align:right;text-align: -moz-right;
+            text-align: -moz-right;padding:0px 1mm;font-size: 50px;}
+        .express_1_2{height:27mm;border-bottom:1px solid #002967;overflow: hidden;}
+        .express_1_2_1{width:62mm;padding:3mm 0;height:21mm;overflow: hidden;border-right:1px solid #002967;}
+        .express_1_2_1_4{height:12mm;display: block;overflow: hidden;margin:1mm auto;}
+        .express_1_2_1_1{overflow: hidden;padding-left:7mm;}
+        .express_1_2_1_2{line-height: 5mm;display: block;margin-right: 1mm;}
+        .express_1_2_1_3{line-height: 5mm;}
+        .express_1_2_2{width:33mm;overflow: hidden;height:27mm;}
+        .express_1_2_2_1{height:7mm;line-height:7mm;font-size:20px;font-weight: 700;text-align: center;text-align: -moz-center;text-align: -webkit-center;border-bottom:1px solid #002967;}
+        .express_1_2_2_2{overflow: hidden;}
+        .express_1_2_2_2 p{font-size: 30px;font-weight: 700;}
+        .express_1_2_2_2 span{display: block;font-size:16px;}
+        .express_1_2_2_2 i{display: block;font-size:20px;font-style: normal;font-weight: 700;}
+        .express_1_3{height:14mm;overflow: hidden;border-bottom:1px solid #002967;}
+        .express_1_3_1{width:8mm;height:11mm;padding:1.5mm 0;border-right:1px solid #002967;}
+        .express_1_3_1 p{text-align: center;text-align: -moz-center;text-align: -webkit-center;line-height:4mm;font-size: 12px;}
+        .express_1_3_2{width:87mm;height:14mm;overflow: hidden;}
+        .express_1_3_3{width:87mm;height:14mm;overflow: hidden;font-size:68px;font-weight: 700;line-height:14mm;}
+        .express_1_3_4{font-size:16px;width:87mm;height:14mm;overflow: hidden;}
+        .express_1_3_5{width:62mm;overflow: hidden;border-right:1px solid #002967;font-size:14px;height:14mm;}
+        .express_1_3_6{width:24mm;overflow: hidden;height:14mm;}
+        .express_1_3_6 p{height:7mm;line-height:7mm;font-size:20px;text-align: center;text-align: -moz-center;text-align: -webkit-center;font-weight: 700;}
+        .express_1_3_6 span{text-align: center;text-align: -moz-center;text-align: -webkit-center;display: block;font-weight: 700;}
+        .express_1_6{height:15mm;overflow: hidden;border-bottom:1px solid #002967;font-size: 12px;}
+        .express_1_6_1{width:35mm;overflow: hidden;}
+        .express_1_6_1 span{display: block;}
+        .express_1_6_2{min-width:27mm;overflow: hidden;}
+        .express_1_6_2 span{display: block;}
+        .express_1_6_3{width:54mm;overflow: hidden;}
+        .express_1_6_3 span{display: block;}
+        .express_1_6_4{overflow: hidden;margin-top:7mm;}
+        .express_1_6_4 span{display: block;}
+        .express_1_6_3_1{width:28mm;overflow: hidden;}
+        .express_1_7{height:20mm;}
+        .express_1_7_1{width:69mm;height:20mm;border-right:1px solid #002967;}
+        .express_1_7_2{width:30mm;height:20mm;}
+        .express_1_7_2_1{overflow: hidden;}
+        .express_1_7_2_2{height:11mm;overflow:hidden;}
+        .express_1_7_2_3{height:4mm;text-align: right;text-align: -moz-right;text-align: -webkit-right;}
+        .express_1_7_1_1{height:9.6mm;border-bottom:1px solid #002967;}
+        .express_1_7_1_2{width:8mm;height:9.6mm;border-right:1px solid #002967;font-size: 12px;}
+        .express_1_7_1_2 p{height:3.3mm;line-height:3.3mm;text-align: center;text-align: -moz-center;text-align: -webkit-center;}
+        .express_1_7_1_3{width:60mm;overflow: hidden;height:9.6mm;}
+        .express_1_7_1_4{width:29mm;overflow: hidden;height:9.6mm;border-right:1px solid #002967;}
+        .express_1_7_1_5{width:30mm;overflow: hidden;height:9.6mm;font-size: 12px;line-height:3mm;}
+        .express_2{width:100mm;height:70mm;overflow: hidden;}
+        .express_2_1{height:15mm;overflow: hidden;border-bottom:1px solid #002967;}
+        .express_2_1_1{width:30mm;height:15mm;overflow: hidden;border-right:1px solid #002967;}
+        .express_2_1_1 img{height:6mm;margin:1mm auto 0;display: block;}
+        .express_2_1_2{width:69mm;height:15mm;overflow: hidden;}
+        .express_2_1_2 img{height:9mm;margin:1mm auto;display: block;}
+        .express_2_1_2 p{height:4mm;line-height: 4mm;text-align: center;text-align: -moz-center;text-align: -webkit-center;}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="express">
+    <div class="express_1">
+        <div class="express_1_1">
+            <img class="l" src="../../static/img/logo.jpg"/>
+            <th:if test="${express_type.equals('顺丰隔日') || express_type.equals('云仓专配隔日')}">
+                <div class="l">E </div>
+            </th:if>
+            <th:if test="${not empty cod_value}">
+                <span class="l">COD</span>
+            </th:if>
+            <img class="l" style="float:right" src="../../static/img/tel.png"/>
+        </div>
+        <div class="express_1_2">
+            <div class="l express_1_2_1">
+                <img class="express_1_2_1_4" src="../../static/img/wuliu_03.png"/>
+                <div class="express_1_2_1_1">
+                    <span class="l express_1_2_1_2">1/2</span>
+                    <div class="l express_1_2_1_3">
+                        <th:if test="${!empty mailNoo_slave}">
+                            <p>子单号<span th:text="${mailNoo_slave}"></span></p>
+                        </th:if>
+                        <p>母单号<span th:text="${mailNoo_master}"> </span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="l express_1_2_2">
+                <div class="express_1_2_2_1" th:text="${express_type}"></div>
+                <div class="express_1_2_2_2">
+                    <th:if test="${!empty cod_value}">
+                        <p>代收货款</p>
+                        <span>卡号:<a th:text="${cod_cusId}"></a></span>
+                        <!--<a>￥<a th:text="${cod_value} "></a>元</a>-->
+                    </th:if>
+                </div>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>目</p>
+                <p>的</p>
+                <p>地</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="express_1_3_3" th:text="${destCode}"></div>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>收</p>
+                <p>件</p>
+                <p>人</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="express_1_3_4"><span th:text="${d_contact+d_Tel}"></span><br/><span th:text="${d_province+d_city+d_county+d_address}"></span></div>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>寄</p>
+                <p>件</p>
+                <p>人</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="l express_1_3_5"><span th:text="${j_contact+j_tel}"></span><br/><span th:text="${j_province+j_city+j_county+j_address}"></span></div>
+                <div class="l express_1_3_6">
+                    <!-- 		<p>定时派送</p>
+                            <span>自寄  自取</span> -->
+                </div>
+            </div>
+        </div>
+        <div class="express_1_6">
+            <div class="express_1_6_1 l">
+                <span>付款方式：<span th:text="${pay_method}"></span></span>
+                <span>月结账号：<a th:text="${cusId}"></a></span>
+                <!-- <span>第三方地区：010D</span> -->
+                <!--<span>实际重量：</span>-->
+            </div>
+            <div class="express_1_6_2 l">
+                <div class="express_1_6_3">
+                    <div class="l express_1_6_3_1">
+                        <!-- <span>计费重量：1.5KG</span> -->
+                        <th:if test="${!empty insure_value}">
+                            <span>声明价值：<a th:text="${insure_value}"></a>元</span>
+                        </th:if>
+                        <!-- <span>保价费用：10元</span> -->
+                    </div>
+                    <div class="l express_1_6_3_2">
+                        <!-- <span>包装费用：10元</span> -->
+                        <span>运费：</span>
+                        <span>费用合计：</span>
+                    </div>
+                </div>
+                <!-- <span class="express_1_6_2_1">定时派送：2016/03/03-15:00-16:00</span> -->
+            </div>
+            <div class="express_1_6_4 r">
+                <!-- <span class="r">转寄协议客户</span> -->
+            </div>
+        </div>
+        <div class="express_1_7">
+            <div class="express_1_7_1 l">
+                <div class="express_1_7_1_1">
+                    <div class="l express_1_7_1_2">
+                        <p>托</p>
+                        <p>寄</p>
+                        <p>物</p>
+                    </div>
+                    <div class="express_1_7_1_3 l"></div>
+                </div>
+                <div class="express_1_7_1_1">
+                    <div class="l express_1_7_1_2">
+                        <p>备</p>
+                        <p> </p>
+                        <p>注</p>
+                    </div>
+                    <div class="express_1_7_1_3 l">
+                        <div class="express_1_7_1_4 l"></div>
+                        <div class="express_1_7_1_5 l">
+                            收件员:<br>寄件日期:</br>派件员:
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="express_1_7_2 l">
+                <p class="express_1_7_2_1">签收：</p>
+                <p class="express_1_7_2_2"></p>
+                <p class="express_1_7_2_3">月    日</p>
+            </div>
+        </div>
+    </div>
+    <div class="express_2">
+        <div class="express_2_1">
+            <div class="express_2_1_1 l">
+                <img src="../../static/img/logo.jpg"/>
+                <img src="../../static/img/tel.png"/>
+            </div>
+            <div class="express_2_1_2 l">
+                <img src="../../static/img/wuliu_03.png"/>
+                <p>母单号<span th:text="${mailNoo_master}"> </span></p>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>寄</p>
+                <p>件</p>
+                <p>人</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="l express_1_3_5"><span th:text="${j_contact+j_tel}"></span><br/><span th:text="${j_province+j_city+j_county+j_address}"></span></div>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>收</p>
+                <p>件</p>
+                <p>人</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="express_1_3_4"><span th:text="${d_contact+d_Tel}"></span><br/><span th:text="${d_province+d_city+d_county+d_address}"></span></div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="express">
+    <div class="express_1">
+        <div class="express_1_1">
+            <img class="l" src="../static/img/logo.jpg"/>
+            <th:if test="${express_type.equals('顺丰隔日') || express_type.equals('云仓专配隔日')}">
+                <div class="l">E </div>
+            </th:if>
+            <th:if test="${not empty cod_value}">
+                <span class="l">COD</span>
+            </th:if>
+            <img class="l" style="float:right" src="../../static/img/tel.png"/>
+        </div>
+        <div class="express_1_2">
+            <div class="l express_1_2_1">
+                <img class="express_1_2_1_4" src="../../static/img/wuliu_03.png"/>
+                <div class="express_1_2_1_1">
+                    <span class="l express_1_2_1_2">1/2</span>
+                    <div class="l express_1_2_1_3">
+                        <th:if test="${!empty mailNoo_slave}">
+                            <p>子单号<span th:text="${mailNoo_slave}"></span></p>
+                        </th:if>
+                        <p>母单号<span th:text="${mailNoo_master}"> </span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="l express_1_2_2">
+                <div class="express_1_2_2_1" th:text="${express_type}"></div>
+                <div class="express_1_2_2_2">
+                    <th:if test="${!empty cod_value}">
+                        <p>代收货款</p>
+                        <span>卡号:<a th:text="${cod_cusId}"></a></span>
+                        <!--<i >￥<a th:text="${cod_value} "></a>元</i >-->
+                    </th:if>
+                </div>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>目</p>
+                <p>的</p>
+                <p>地</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="express_1_3_3" th:text="${destCode}"></div>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>收</p>
+                <p>件</p>
+                <p>人</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="express_1_3_4"><span th:text="${d_contact+d_Tel}"></span><br/><span th:text="${d_province+d_city+d_county+d_address}"></span></div>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>寄</p>
+                <p>件</p>
+                <p>人</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="l express_1_3_5"><span th:text="${j_contact+j_tel}"></span><br/><span th:text="${j_province+j_city+j_county+j_address}"></span></div>
+                <div class="l express_1_3_6">
+                    <!-- 		<p>定时派送</p>
+                            <span>自寄  自取</span> -->
+                </div>
+            </div>
+        </div>
+        <div class="express_1_6">
+            <div class="express_1_6_1 l">
+                <span>付款方式：<span th:text="${pay_method}"></span></span>
+                <span>月结账号：<a th:text="${cusId}"></a></span>
+                <!-- <span>第三方地区：010D</span> -->
+                <!--<span>实际重量：</span>-->
+            </div>
+            <div class="express_1_6_2 l">
+                <div class="express_1_6_3">
+                    <div class="l express_1_6_3_1">
+                        <!-- <span>计费重量：1.5KG</span> -->
+                        <th:if test="${!empty insure_value}">
+                            <span>声明价值：<span th:text="${insure_value}"></span>元</span>
+                        </th:if>
+                        <!-- <span>保价费用：10元</span> -->
+                    </div>
+                    <div class="l express_1_6_3_2">
+                        <!-- <span>包装费用：10元</span> -->
+                        <span>运费：</span>
+                        <span>费用合计：</span>
+                    </div>
+                </div>
+                <!-- <span class="express_1_6_2_1">定时派送：2016/03/03-15:00-16:00</span> -->
+            </div>
+            <div class="express_1_6_4 r">
+                <!-- <span class="r">转寄协议客户</span> -->
+            </div>
+        </div>
+        <div class="express_1_7">
+            <div class="express_1_7_1 l">
+                <div class="express_1_7_1_1">
+                    <div class="l express_1_7_1_2">
+                        <p>托</p>
+                        <p>寄</p>
+                        <p>物</p>
+                    </div>
+                    <div class="express_1_7_1_3 l"></div>
+                </div>
+                <div class="express_1_7_1_1">
+                    <div class="l express_1_7_1_2">
+                        <p>备</p>
+                        <p> </p>
+                        <p>注</p>
+                    </div>
+                    <div class="express_1_7_1_3 l">
+                        <div class="express_1_7_1_4 l"></div>
+                        <div class="express_1_7_1_5 l">
+                            收件员:<br>寄件日期:</br>派件员:
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="express_1_7_2 l">
+                <p class="express_1_7_2_1">签收：</p>
+                <p class="express_1_7_2_2"></p>
+                <p class="express_1_7_2_3">月    日</p>
+            </div>
+        </div>
+    </div>
+    <div class="express_2">
+        <div class="express_2_1">
+            <div class="express_2_1_1 l">
+                <img src="../../static/img/logo.jpg"/>
+                <img src="../../static/img/tel.png"/>
+            </div>
+            <div class="express_2_1_2 l">
+                <img src="../../static/img/wuliu_03.png"/>
+                <p>子单号<span th:text="${mailNoo_master}"> </span></p>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>寄</p>
+                <p>件</p>
+                <p>人</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="l express_1_3_5"><span th:text="${j_contact+j_tel}"></span><br/><span th:text="${j_province+j_city+j_county+j_address}"></span></div>
+            </div>
+        </div>
+        <div class="express_1_3">
+            <div class="l express_1_3_1">
+                <p>收</p>
+                <p>件</p>
+                <p>人</p>
+            </div>
+            <div class="l express_1_3_2">
+                <div class="express_1_3_4"><span th:text="${d_contact+d_Tel}"></span><br/><span th:text="${d_province+d_city+d_county+d_address}"></span></div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>

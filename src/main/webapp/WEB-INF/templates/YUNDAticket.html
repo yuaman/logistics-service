@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>韵达快递单</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{font-size:14px;font-family:'黑体';}
+        .l{float: left;}
+        .r{float: right;}
+        .delivery{width:101mm;height:205mm;border:1px solid #002967;overflow: hidden;margin:60px auto;}
+        .delivery_1{height:36mm;border-bottom:1px solid #002967;overflow: hidden;font-weight:700;}
+        .delivery_1_1{height:27mm;overflow: hidden;}
+        .delivery_1_2{height:23mm;width:10mm;font-size: 16px;padding:2mm;}
+        .delivery_1_3{width:86mm;height:25mm;padding-top:2mm;}
+        .delivery_1_3 p{line-height:6mm;font-size: 16px;}
+        .delivery_1_4{font-size:26px;height:9mm;line-height:9mm;padding-left:2mm;}
+        .delivery_2{height:56mm;border-bottom:1px solid #002967;}
+        .delivery_2_1{height:28mm;border-bottom:1px solid #002967;}
+        .delivery_2_1 p{height:14mm;line-height: 14mm;font-size:46px;text-align: center;text-align: -moz-center;text-align: -webkit-center;font-weight:700;}
+        .delivery_2_2{height:27mm;overflow: hidden;}
+        .delivery_2_2 img{height:17mm;display: block;margin:2mm auto;overflow: hidden;}
+        .delivery_2_2 p{height:7mm;line-height: 7mm;overflow: hidden;font-size: 16px;padding:0 1mm;}
+        .delivery_2_2 p span{margin-left:18mm;}
+        .delivery_3{height:73mm;overflow: hidden;border-bottom:1px solid #002967;}
+        .delivery_3_1{height:10mm;padding-left:2mm;line-height:10mm;border-bottom:1px solid #002967;font-size:16px;}
+        .delivery_3_2{height:62mm;overflow: hidden;}
+        .delivery_3_2_1{height:40mm;overflow: hidden;}
+        .delivery_3_2_2{height:8mm;padding:1mm 0;overflow: hidden;}
+        .delivery_3_2_3{height:8mm;line-height: 8mm;width:26mm;margin-right: 4mm;text-align: center;text-align: -moz-center;text-align: -webkit-center;border:1px solid #002967;font-size:16px;}
+        .delivery_3_2_4{height:10mm;padding:1mm 2mm;overflow: hidden;}
+        .delivery_3_2_4 p{height:10mm;line-height: 10mm;width:30mm;overflow: hidden;text-align: center;text-align: -moz-center;text-align: -webkit-center;}
+        .delivery_3_2_4 img{height:10mm;display: block;margin:0 4mm;}
+        .delivery_4{height:34mm;border-bottom:1px solid #002967;overflow: hidden;}
+        .delivery_4_1{width:60mm;border-right:1px solid #002967;overflow: hidden;height:34mm;}
+        .delivery_4_1 p{line-height:4mm;overflow: hidden;padding-left:1mm;}
+        .delivery_4_2{width:40mm;overflow: hidden;height:34mm;}
+        .delivery_5{height:5mm;line-height: 5mm;overflow: hidden;font-size: 12px;}
+        .delivery_5 span{margin:0 1mm;}
+    </style>
+</head>
+<body>
+<div class="delivery">
+    <div class="delivery_1">
+        <div class="delivery_1_1">
+            <p class="l delivery_1_2">送达地址</p>
+            <div class="l delivery_1_3">
+                <p >收件人:<span th:text="${receiver_name}"></span></p>
+                <p>收件人电话:<span th:text="${receiver_mobile}"></span></p>
+                <p>收件人地址:<span th:text="${receiver_address}"></span></p>
+            </div>
+        </div>
+        <div class="delivery_1_4" th:text="${package_wdjc}"></div>
+    </div>
+    <div class="delivery_2">
+        <div class="delivery_2_1">
+            <p th:text="${position}"></p>
+            <p th:text="${position_no}"></p>
+        </div>
+        <div class="delivery_2_2">
+            <img src="../static/img/20170511021524_6937748304340.jpeg"/>
+            <p>运单编号<span th:text="${mailNo}"></span></p>
+        </div>
+    </div>
+
+    <div class="delivery_3">
+        <div class="delivery_3_1">收件人/代签人:</div>
+        <div class="delivery_3_2">
+            <div class="delivery_3_2_1" th:text="${cus_area1}"></div>
+            <div class="delivery_3_2_2">
+                <div class="delivery_3_2_3 r">已  验  视</div>
+            </div>
+            <div class="delivery_3_2_4">
+                <p class="l" th:text="${mailNo}"></p>
+                <img class="l" src="../static/img/20170511021524_6937748304340.jpeg"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="delivery_4">
+        <div class="l delivery_4_1">
+            <p>寄件人:<span th:text="${sender_name}"></span></p>
+            <p>寄件人电话:<span th:text="${sender_mobile}"></span></p>
+            <p>寄件人地址:<span th:text="${sender_address}"></span></p>
+            <p>收件人:<span th:text="${receiver_name}"></span></p>
+            <p>收件人电话:<span th:text="${receiver_mobile}"></span></p>
+            <p>收件人地址:<span th:text="${receiver_address}"></span></p>
+        </div>
+        <div class="l delivery_4_2"></div>
+    </div>
+    <div class="delivery_5">
+        <span class="l">官方网址:http//www.yundaex.com</span>
+        <span class="l">客服热线:400-821-6789</span>
+        <span class="r">收货人联</span>
+    </div>
+</div>
+</body>
+</html>
+

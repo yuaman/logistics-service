@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>顺丰打印单</title>
+
+    <style>
+
+        /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+        html{font-family: sans-serif;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;}
+        body{margin: 0;}
+        article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display: block;}
+        audio,canvas,progress,video{display: inline-block;}
+        audio:not([controls]){display: none;height: 0;}
+        progress{vertical-align: baseline;}
+        template,[hidden]{display: none;}
+        a{background-color: transparent;-webkit-text-decoration-skip: objects;}
+        a:active,a:hover{outline-width: 0;}
+        abbr[title]{border-bottom: none;text-decoration: underline;text-decoration: underline dotted;}
+        b,strong{font-weight: inherit;}
+        b,strong{font-weight: bolder;}
+        dfn{font-style: italic;}
+        h1{font-size: 2em;margin: 0.67em 0;}
+        mark{background-color: #ff0;color: #000;}
+        small{font-size: 80%;}
+        sub,sup{font-size: 75%;line-height: 0;position: relative;vertical-align: baseline;}
+        sub{bottom: -0.25em;}
+        sup{top: -0.5em;}
+        img{border-style: none;}
+        svg:not(:root){overflow: hidden;}
+        code,kbd,pre,samp{font-family: monospace, monospace;font-size: 1em;}
+        figure{margin: 1em 40px;}
+        hr{box-sizing: content-box;height: 0;overflow: visible;}
+        button,input,select,textarea{font: inherit;margin: 0;}
+        optgroup{font-weight: bold;}
+        button,input{overflow: visible;}
+        button,select{text-transform: none;}
+        button,html [type="button"],[type="reset"],[type="submit"]{-webkit-appearance: button;}
+        button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style: none;padding: 0;}
+        button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline: 1px dotted ButtonText;}
+        fieldset{border: 1px solid #c0c0c0;margin: 0 2px;padding: 0.35em 0.625em 0.75em;}
+        legend{box-sizing: border-box;color: inherit;display: table;max-width: 100%;padding: 0;white-space: normal;}
+        textarea{overflow: auto;}
+        [type="checkbox"],[type="radio"]{box-sizing: border-box;padding: 0;}
+        [type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height: auto;}
+        [type="search"]{-webkit-appearance: textfield;outline-offset: -2px;}
+        [type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance: none;}
+        ::-webkit-input-placeholder{color: inherit;opacity: 0.54;}
+        ::-webkit-file-upload-button{-webkit-appearance: button;font: inherit;}
+
+        /*reset*/
+        h1,h2,h3,h4,h5,h6{font-weight: normal;font-size: 100%;}
+        h1,h2,h3,h4,h5,h6,p,th,td,ul,ol,textarea,input,button{margin: 0;padding: 0;}
+        table{border-collapse: collapse;border-spacing: 0;}
+        ul,ol{list-style: none;}
+        img{vertical-align: bottom;}
+
+        /*common*/
+        body{background-color: #fff;color: #333;font-family: "黑体",arial;}
+        .cl:after{content: '';display: block;height: 0;clear: both;}
+
+        @charset "utf-8";
+        .page{width: 464px;border: 1px solid #bfbfbf;margin: 20px auto 0;padding: 0 5px;overflow: hidden;padding-bottom: 5px;}
+        .b{border-bottom: 1px solid #bfbfbf;}
+        .m1,.m3,.m4{height: 60px;}
+        .m1{position: relative;overflow: hidden;}
+        .m1 img{position: absolute;top: 20px;width: 70px;}
+        .m1 .img1{left: 3px;}
+        .m1 .img2{right: 0;}
+        .m1 p{position: absolute;top: 0;right: 75px;font-size: 48px;line-height: 60px;}
+        .m1 p .s2{font-family: arial;}
+
+        .m2{height: 86px;}
+        .m2 .left{width: 353px;height: 100%;border-right: 1px solid #bfbfbf;float: left;}
+        .m2 .left img{display: block;width: 217px;margin: 8px auto 4px;}
+        .m2 .left p{font-size: 13px;text-align: center;}
+        .m2 .left p span{font-family: arial;}
+        .m2 .right{width: 110px;height: 100%;float: left;}
+        .m2 .r1{height: 25px;}
+        .m2 .r1 p{font-size: 18px;line-height: 25px;}
+        .m2 .r2 .p1{font-size: 26px;}
+        .m2 .r2 .p2{font-size: 12px;}
+        .m2 .r2 .p3{font-size: 14px;}
+
+        .m3 .left,.m4 .left,.m5 .left,.m6 .l2-a,.m8 .left,.m9 .left{width: 22px;height: 100%;border-right: 1px solid #bfbfbf;float: left;font-size: 12px;}
+        .m3 .left p,.m4 .left p{margin-top: 7px;margin-left: 5px;}
+        .m3 .right p{font-size: 66px;line-height: 55px;}
+        .m3 .right,.m4 .right{float: left;width: 392px;height: 100%;}
+        .m4 .right p{font-size: 18px;}
+
+        .m5,.m8{height: 40px;}
+        .m5 .right-1{height: 100%;width: 367px;border-right: 1px solid #bfbfbf;float: left;}
+        .m5 .right-1 p{font-size: 12px;}
+        .m5 .right-2{width: 73px;height: 100%;float: left;}
+        .m5 .right-2 .p1{font-size: 18px;}
+        .m5 .right-2 .p2{font-size: 13px;}
+
+        .m6 .left{float: left;width: 390px;height: 100%;border-right: 1px solid #bfbfbf;}
+        .m6 .l1{height: 70px;position: relative;}
+        .m6 .l1 ul{width: 130px;float: left;}
+        .m6 .l1 p{position: absolute;bottom: 0;right: 0;font-size: 13px;}
+        .m6 .l1 ul li{font-size: 12px;white-space:nowrap;}
+        .m6 .l2-c ul li{font-size: 12px;}
+        .m6 .l2-c ul li b{font-weight: bold;}
+        .m6 .l2{height: 46px;}
+        .m6 .l2-b{width: 255px;height: 100%;float: left;border-right: 1px solid #bfbfbf;}
+        .m6 .l2-c{height: 100%;float: left;}
+        .m6 .right{float: left;width: 73px;height: 117px;position: relative;}
+        .m6 .right p{font-size: 12px;}
+        .m6 .right .p2{position: absolute;right: 0;bottom: 0;}
+        .m6 .right .p2 span{padding-left: 17px;}
+
+        .m7{height: 75px;}
+        .m7 .left{width: 110px;height: 100%;border-right: 1px solid #bfbfbf;float: left;}
+        .m7 .left img{width: 70px;margin: 0 auto;display: block;margin-bottom: 5px;}
+        .m7 .left .img1{margin-top: 10px;}
+
+        .m7 .right{width: 353px;height: 100%;float: left;}
+        .m7 .right img{width: 217px;display: block;margin: 8px auto 4px;}
+        .m7 .right p{font-size: 13px;text-align: center;}
+        .m7 .right p span{font-family: arial;}
+        .m8 .right{height: 100%;float: left;font-size: 12px;}
+        .m10{height: 120px;}
+        .item-last{border-bottom: none;}
+
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="m1 b">
+        <img src="../../static/img/logo.jpg" class="img1"/>
+        <img src="../../static/img/tel.png" class="img2"/>
+        <p>
+            <th:if test="${express_type.equals('顺丰隔日') || express_type.equals('云仓专配隔日')}">
+                <span class="s1">E</span><!-- <span class="s2">加急</span> -->
+            </th:if>
+            <th:if test="${not empty cod_value}">
+                <span class="s1">COD</span>
+            </th:if>
+        </p>
+    </div>
+    <div class="m2 b">
+        <div class="left">
+            <img style=" width:280px; height:60px;" src="../../static/img/mailNoMaster_444832476034.jpg"/>
+
+            <p>运单号<span th:text="${mailNoo_master}"></span></p>
+        </div>
+        <div class="right">
+            <div class="r1 b">
+                <p th:text="${express_type}">${express_type}</p>
+            </div>
+            <div class="r2">
+                <th:if test="${!empty cod_value}">
+                    <p class="p2">代收贷款</p>
+                    <p class="p2" th:text="${cod_cusId}">卡号：${cusId}</p>
+                    <p class="p3" th:text="${cod_value}">¥{cod_value}</p>
+					</th:if>
+				</div>
+			</div>
+		</div>
+		<div class="m3 b">
+                    <div class="left">
+                        <p>目的地</p>
+                    </div>
+                    <div class="right">
+                        <p th:text="${destCode}"> ${destCode}</p>
+                    </div>
+            </div>
+            <div class="m4 b">
+                <div class="left">
+                    <p>收件人</p>
+                </div>
+                <div class="right">
+                    <p th:text="${d_contact+d_Tel}">${d_contact}${d_Tel}</p>
+                    <p th:text="${d_province+d_city+d_county+d_address}">${d_province}${d_city}${d_county}${d_address}</p>
+                </div>
+            </div>
+            <div class="m5 b">
+                <div class="left">
+                    <p>寄件人</p>
+                </div>
+                <div class="right-1">
+                    <p th:text="${j_contact+j_tel}">${j_contact}${j_tel}</p>
+                    <p th:text="${j_province+j_city+j_county+j_address}">${j_province}${j_city}${j_county}${j_address}</p>
+                </div>
+                <div class="right-2">
+                    <p class="p1"><!-- 定时派送 --></p>
+                    <p class="p2"><!-- 自寄 自取 --></p>
+                </div>
+            </div>
+            <div class="m6 b cl">
+                <div class="left">
+                    <div class="l1 b">
+                        <ul>
+                            <li >付款方式：<span th:text="${pay_method}"></span></li>
+                            <li>月结账号：<span th:text="${cusId}"></span></li>
+                            <!-- <li>第三方地区：010D</li> -->
+                            <li>实际重量：</li>
+                        </ul>
+                        <ul>
+                            <!-- <li>计费重量：1.5KG</li> -->
+                            <li>声明价值：<span th:text="${insure_value}"></span>元</li>
+
+                            <!--  -->
+                        </ul>
+                        <ul>
+                            <!-- <li>保价费用：<b>30元</b></li>  -->
+                            <li>运费：<b></b></li>
+                            <li>费用合计：<b></b></li>
+                        </ul>
+                        <!-- <p>转寄协议客户</p> -->
+                    </div>
+                    <div class="l2">
+                        <div class="l2-a">
+                            <p>托寄物</p>
+                        </div>
+                        <div class="l2-b"></div>
+                        <div class="l2-c">
+                            <ul>
+                                <li>收件员:</li>
+                                <li>收件日期：</li>
+                                <li>派件员：</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <p>签名：</p>
+                    <p class="p2">月<span>日</span></p>
+                </div>
+            </div>
+            <div class="item b">
+                <div class="m7 b cl">
+                    <div class="left">
+                        <img  src="../../static/img/logo.jpg"/>
+                        <img src="../../static/img/tel.png"/>
+                    </div>
+                    <div class="right">
+                        <img style=" width:280px; height:50px;" src="../../static/img/mailNoMaster_444832476034.jpg"/>
+                        <p>运单号<span th:text="${mailNoo_master}"> </span></p>
+                    </div>
+                </div>
+                <div class="m8 b">
+                    <div class="left">
+                        <p>寄件人</p>
+                    </div>
+                    <div class="right">
+                        <p th:text="${j_contact+j_tel}">${j_contact}${j_tel}</p>
+                        <p th:text="${j_province+j_city+j_county+j_address}">${j_province}${j_city}${j_county}${j_address}</p>
+                    </div>
+                </div>
+                <div class="m8 b">
+                    <div class="left">
+                        <p>收件人</p>
+                    </div>
+                    <div class="right">
+                        <p th:text="${d_contact+d_Tel}">${d_contact}${d_Tel}</p>
+                        <p th:text="${d_province+d_city+d_county+d_address}">${d_province}${d_city}${d_county}${d_address}</p>
+                    </div>
+                </div>
+                <div class="m10">产品名称：<span th:text="${cargoName}"></span></div>
+            </div>
+             <div class="item b">
+            <div class="m7 b cl">
+                <div class="left">
+                    <img class="img1" src="../../static//img/logo.jpg"/>
+                    <img src="../../static/img/tel.png"/>
+                </div>
+                <div class="right">
+                    <img src="../../static/img/mailNoMaster_444832476034.jpg"/>
+                    <p>母单号<span th:text="${mailNoo_master}"></span></p>
+                </div>
+            </div>
+            <div class="m8 b">
+                <div class="left">
+                    <p>寄件人</p>
+                </div>
+                <div class="right">
+                    <p th:text="${j_contact+j_tel}"></p>
+                    <p th:text="${j_province+j_city+j_county+j_address}"></p>
+                </div>
+            </div>
+            <div class="m8 b">
+                <div class="left">
+                    <p>收件人</p>
+                </div>
+                <div class="right">
+                    <p><span th:text="${d_contact+d_Tel}"></span></p>
+                    <p><span th:text="${d_province+d_city+d_county+d_address}"></span></p>
+                </div>
+            </div>
+            <!-- 	<div class="m10"></div> -->
+        </div>
+        </div>
+</body>
+</html>
