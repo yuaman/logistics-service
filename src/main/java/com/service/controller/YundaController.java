@@ -1,9 +1,9 @@
 package com.service.controller;
 
-import com.xhfxw.logistics.GetUrl;
-import com.xhfxw.logistics.domain.LogisticsAddrNodeInfo;
-import com.xhfxw.logistics.repository.LogisAddtNodeInfoRepository;
-import com.xhfxw.logistics.util.*;
+import com.service.GetUrl;
+import com.service.domain.LogisticsAddrNodeInfo;
+import com.service.repository.LogisAddtNodeInfoRepository;
+import com.service.util.*;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.BufferedReader;
@@ -41,7 +41,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-//import com.xhfxw.logistics.util.BarcodeUtil;
+//import com.service.util.BarcodeUtil;
 
 import javax.inject.Inject;
 
@@ -117,7 +117,7 @@ public class YundaController  {
 
         xmldata = URLDecoder.decode(xmldata,"utf-8");
 
-        String addr_info = com.xhfxw.logistics.util.Base64.getFromBase64(xmldata);
+        String addr_info = com.service.util.Base64.getFromBase64(xmldata);
 
         logger.info("addr_info_before============" + addr_info);
  //       String addrInfo[] = addr_info.split("</order>");

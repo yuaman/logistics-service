@@ -139,16 +139,17 @@ public class DepponInterface  {
 			String paramsValue = JSONTool.convertCollection2Json(params);
 			String string = paramsValue.substring(1, paramsValue.length()-1);
 			logger.info("下单报文"+string);
-			String digestValue=net.youhj.util.Base64.getBase64(MD5.GetMD5Code(string+DepponParams.APIKEY+DepponParams.TIMESTAMPVALUE));
-			 String str1 =  HttpComm.getHttpStrFou(
-					DepponParams.CREATORDERURL,
-					DepponParams.TIMESTAMP, DepponParams.TIMESTAMPVALUE,
-					DepponParams.PARAMS,string,
-					DepponParams.COMPANYCODE, DepponParams.COMPANYCODEVALUE,
-					DepponParams.DIGEST, digestValue);
-			 logger.info("下单报文response"+str1);
-			
-			return str1;
+			String digestValue=com.service.util.Base64.getBase64(MD5.GetMD5Code(string+DepponParams.APIKEY+DepponParams.TIMESTAMPVALUE));
+//			 String str1 =  HttpComm.getHttpStrFou(
+//					DepponParams.CREATORDERURL,
+//					DepponParams.TIMESTAMP, DepponParams.TIMESTAMPVALUE,
+//					DepponParams.PARAMS,string,
+//					DepponParams.COMPANYCODE, DepponParams.COMPANYCODEVALUE,
+//					DepponParams.DIGEST, digestValue);
+//			 logger.info("下单报文response"+str1);
+//
+//			return str1;
+		return  "";
 			
 		}
 		
@@ -167,16 +168,16 @@ public class DepponInterface  {
 		String paramsValue = JSONTool.convertCollection2Json(params);
 		String string = paramsValue.substring(1, paramsValue.length()-1);
 		 logger.info("追单报文"+string);
-		String digestValue=net.youhj.util.Base64.getBase64(MD5.GetMD5Code(string+DepponParams.APIKEY+DepponParams.TIMESTAMPVALUE));
-		 String str1 =  HttpComm.getHttpStrFou(
-				DepponParams.ORDERFOLLOWURL,
-				DepponParams.TIMESTAMP, DepponParams.TIMESTAMPVALUE,
-				DepponParams.PARAMS,string,
-				DepponParams.COMPANYCODE, DepponParams.COMPANYCODEVALUE,
-				DepponParams.DIGEST, digestValue);
-		 logger.info("追单response:"+str1);
-		return str1;
-		
+		String digestValue=com.service.util.Base64.getBase64(MD5.GetMD5Code(string+DepponParams.APIKEY+DepponParams.TIMESTAMPVALUE));
+//		 String str1 =  HttpComm.getHttpStrFou(
+//				DepponParams.ORDERFOLLOWURL,
+//				DepponParams.TIMESTAMP, DepponParams.TIMESTAMPVALUE,
+//				DepponParams.PARAMS,string,
+//				DepponParams.COMPANYCODE, DepponParams.COMPANYCODEVALUE,
+//				DepponParams.DIGEST, digestValue);
+//		 logger.info("追单response:"+str1);
+//		return str1;
+		return  "";
 	}
 
 }

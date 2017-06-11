@@ -1,6 +1,6 @@
 package com.service.repository;
 
-import com.xhfxw.logistics.domain.LogisticsAddrNodeInfo;
+import com.service.domain.LogisticsAddrNodeInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 

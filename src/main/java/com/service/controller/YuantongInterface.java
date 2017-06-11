@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.mail.internet.MimeMessage.RecipientType;
+//import javax.mail.internet.MimeMessage.RecipientType;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;

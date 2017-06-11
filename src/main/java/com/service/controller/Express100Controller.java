@@ -7,11 +7,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import com.sun.jmx.snmp.Timestamp;
-import com.xhfxw.logistics.domain.LogisticsAddrNodeInfo;
-import com.xhfxw.logistics.repository.LogisAddtNodeInfoRepository;
-import com.xhfxw.logistics.util.GeneralPkCode;
-import com.xhfxw.logistics.util.MD5;
-import com.xhfxw.logistics.util.YMDTools;
+import com.service.domain.LogisticsAddrNodeInfo;
+import com.service.repository.LogisAddtNodeInfoRepository;
+import com.service.util.GeneralPkCode;
+import com.service.util.MD5;
+import com.service.util.YMDTools;
 import jxl.write.DateTime;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.NameValuePair;
@@ -31,7 +31,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.xhfxw.logistics.util.JacksonHelper;
+import com.service.util.JacksonHelper;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.annotation.Resource;
@@ -307,7 +307,7 @@ public class Express100Controller  {
         map.put("key", key);
 
         Map<String, String> parameters_map = new LinkedHashMap<>();
-        parameters_map.put("callbackurl", "http://www.xhfxw.com/kuaidi?callbackid=wwwwwwww");
+//        parameters_map.put("callbackurl", "http://www.xhfxw.com/kuaidi?callbackid=wwwwwwww");
         String parameters_map_string = JacksonHelper.toJSON(parameters_map);
 
         map.put("parameters",parameters_map);

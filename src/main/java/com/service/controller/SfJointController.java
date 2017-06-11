@@ -13,10 +13,10 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.xhfxw.logistics.domain.LogisticsAddrNodeInfo;
-import com.xhfxw.logistics.repository.LogisAddtNodeInfoRepository;
-import com.xhfxw.logistics.util.*;
-import com.xhfxw.logistics.GetUrl;
+import com.service.domain.LogisticsAddrNodeInfo;
+import com.service.repository.LogisAddtNodeInfoRepository;
+import com.service.util.*;
+import com.service.GetUrl;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

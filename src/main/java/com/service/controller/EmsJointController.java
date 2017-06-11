@@ -1,11 +1,11 @@
 package com.service.controller;
 
-import com.xhfxw.logistics.Constant;
-import com.xhfxw.logistics.domain.LogisticsAddrNodeInfo;
-import com.xhfxw.logistics.repository.LogisAddtNodeInfoRepository;
-import com.xhfxw.logistics.util.*;
-import com.xhfxw.logistics.GetUrl;
-import com.xhfxw.logistics.util.Base64;
+import com.service.Constant;
+import com.service.domain.LogisticsAddrNodeInfo;
+import com.service.repository.LogisAddtNodeInfoRepository;
+import com.service.util.*;
+import com.service.GetUrl;
+import com.service.util.Base64;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;

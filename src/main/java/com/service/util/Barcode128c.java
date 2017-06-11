@@ -221,7 +221,7 @@ public class Barcode128c {
 	}
 
 //	public static void main(String[] args){
-//		 String barcode_path = "／pro／workspace／xhfxw-stream／src／main／webapp／img";
+//		 String barcode_path = "／pro／workspace／-stream／src／main／webapp／img";
 //		getCode128CPicture("9703800134504", "orderId_"+"9703800134504"+".jpg");
 //	}
 

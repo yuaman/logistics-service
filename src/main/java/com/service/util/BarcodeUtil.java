@@ -1,4 +1,4 @@
-package com.service.util;//package com.xhfxw.logistics.util;
+package com.service.util;
 //
 //import java.awt.image.BufferedImage;
 //import java.io.File;
