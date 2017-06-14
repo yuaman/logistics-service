@@ -21,8 +21,7 @@
 * @Title: DepponController.java
 * @Package net.youhj.controller 
 * @Description: TODO[]
-* @author zhangdanyx@sina.cn[张丹]   
-* @date 2016年10月17日 上午9:23:58 
+* @date 2016年10月17日 上午9:23:58
 * @version V1.0   
 */
 package com.service.controller;

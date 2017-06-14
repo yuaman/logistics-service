@@ -10,7 +10,6 @@ import sun.misc.*;
  *
 * @ClassName: Base64
 * @Description: TODO[base64加密解密]
-* @author zhangdanyx@sina.cn[张丹]
 * @date 2016年10月18日 上午10:24:56
  */
 public class Base64 {
