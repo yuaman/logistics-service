@@ -1,26 +1,8 @@
 package com.service.controller;
 
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-//import javax.mail.internet.MimeMessage.RecipientType;
-
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -32,17 +14,80 @@ import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static com.service.controller.EmsJointController.appKey;
+
+
+//import javax.mail.internet.MimeMessage.RecipientType;
+
 /**
  * 
- * @ClassName YuantongInterface
+ * @ClassName YuantongController
  * @Description 圆通下单及获取 mailNo、目的地code的实现类
  * @author 于霆霖
  * @Date 2016年12月2日 下午3:16:02
  * @version 1.0.0
  */
 
-public class YuantongInterface {
-	private static Log logger  = LogFactory.getLog(YuantongInterface.class.getName());
+public class YuantongController {
+	private static Log logger  = LogFactory.getLog(YuantongController.class.getName());
+	//公共接口   临时开发环境
+	public static final String YTCreateOrder ="" ;
+	public static final String ClientId = "";
+	public static final String PartnerID = "";
+	/**
+	 * order
+	 */
+
+	//物流公司ID（YTO）
+	public static final String logisticProviderID = "logisticProviderID";
+	//	物流号
+	public static final String txLogisticID = "txLogisticID";
+	//订单类型(0-COD,1-普通订单,3-退货单)
+	public static final String orderType = "orderType";
+	//商品名称（可填默认的0）
+	public static final String itemName = "itemName";
+	//商品数量（可填默认的0）
+	public static final String number  = "number";
+	//商品类型（保留字段，暂时不用，默认填0）
+	public static final String special = "special";
+	//服务类型(1-上门揽收, 2-次日达 4-次晨达 8-当日达,0-自己联系)。（数据库未使用）（目前暂未使用默认为0）
+	public static final String serviceType = "serviceType";
+
+	//到件方联系人
+	public static final String name = "name";
+	//到件方手机
+	public static final String mobile = "mobile";
+	//到件方省份
+	public static final String prov = "prov";
+	//到件方城市
+	public static final String city  = "city";
+	//到件方详细地址
+	public static final String address = "address";
+	//用户邮编（如果没有可以填默认的0）
+	public static final String postCode = "postCode";
+
+	/**
+	 * OrderResponse
+	 */
+	//运单号
+	public static final String mailno = "mailno";
+	/**
+	 * 目的地code
+	 */
+	public static final String appkey = "1";
+	public static final String Secretkey = "1";
+	public static final String format = "XML";
+	public static final String method = "yto.BaseData.TransferInfo";
+	public static final String url = "http://58.32.246.70:8001";
+	public static final String userId = "";
+	public static final String v = "1.01";
 
 	/**
 	 * 
@@ -68,13 +113,13 @@ public class YuantongInterface {
 		StringBuffer sb = new StringBuffer(); 
 		sb.append("<RequestOrder>")
 		  .append("<clientID>")
-		  .append(YuantongParams.ClientId)
+		  .append(ClientId)
 		  .append("</clientID>")
 		  .append("<logisticProviderID>")
 		  .append("YTO")
 		  .append("</logisticProviderID>")
 		  .append("<customerId>")
-		  .append(YuantongParams.ClientId)
+		  .append(ClientId)
 		  .append("</customerId>")
 		  .append("<txLogisticID>")
 		  .append(String.valueOf(System.currentTimeMillis()))
@@ -290,7 +335,7 @@ public class YuantongInterface {
 	public static String YTO(String xml) {
 		try{
 			//打开连接
-			URL url = new URL(YuantongParams.YTCreateOrder);
+			URL url = new URL(YTCreateOrder);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setDoOutput(true);
 			connection.setRequestMethod("POST");
@@ -299,7 +344,7 @@ public class YuantongInterface {
 	         logger.info("xml传输之前:"+xml);
 			//加密
 			MessageDigest messagedigest = MessageDigest.getInstance("MD5");
-			messagedigest.update((xml+ YuantongParams.PartnerID).getBytes("UTF-8"));
+			messagedigest.update((xml+ PartnerID).getBytes("UTF-8"));
 			byte[] abyte0 = messagedigest.digest();
 			String data_digest = new String(Base64.encodeBase64(abyte0));
 			
@@ -309,7 +354,7 @@ public class YuantongInterface {
 			//查询
 			String queryString = "logistics_interface=" + URLEncoder.encode(xml, "UTF-8")
 					+ "&data_digest="+ URLEncoder.encode(data_digest,"UTF-8")
-					+ "&clientId=" + URLEncoder.encode(YuantongParams.ClientId, "UTF-8");
+					+ "&clientId=" + URLEncoder.encode(ClientId, "UTF-8");
 			out.write(queryString);
 			out.flush();
 			out.close();
@@ -366,10 +411,10 @@ public class YuantongInterface {
 	 public static String Data(String Citys,String Pro,String Country)
 		{
 			String method = "yto.BaseData.TransferInfo";
-	        String app_key = YuantongParams.app_key;
-	        String user_id = YuantongParams.user_id;
+	        String app_key = appKey;
+	        String user_id = userId;
 	        String Format = "xml";
-	        String Secret_Key = YuantongParams.Secret_Key;//Secret_Key 私钥
+	        String Secret_Key = Secretkey;//Secret_Key 私钥
 	        //String WaybillNumber = "1111111111";//单号
 	     /*   String Pro="江西省";
 	        String Citys="宜春市";
